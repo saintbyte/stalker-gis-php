@@ -1,0 +1,28 @@
+<h1 class="wikititle">Мои трекеры</h1>
+<table>
+<tr>
+<td>
+ИД Девайса
+</td>
+</tr>
+<?php foreach($this->devices  as $dev ) {  ?>
+<tr>
+<td>
+<? print $dev['name']; ?>
+</td>
+</tr>
+<?php }  ?>
+</table>
+<br />
+<br />
+<h3>Добавить</h3>
+<?php if ($this->msg != '') { ?>
+<div style="padding: 6px; border: 1px solid grey; background-color: #FCFCFC;">
+<?php echo $this->msg; ?>
+</div>
+<?php }  ?>
+<form action="" method="post">
+Имя трекера: <input type="text" name="name" size="15"><br />
+<small>Латинские буквы и цифры без пробелов</small><br />
+<input type="submit" value="Добавить" />
+</form>

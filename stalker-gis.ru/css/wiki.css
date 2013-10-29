@@ -1,0 +1,89 @@
+.wikiactions
+{
+        display: block;
+        background-repeat:no-repeat;
+        margin-left: 0em !important; /* .CONTENT UL OL 182 */
+        padding-top: 25px;
+        
+}
+
+.wikiactions ul
+{
+        list-style: outside;
+
+}
+
+.wikiactions li
+{
+        display: inline;
+        padding-right: 25px;
+        height: 16px;
+        background-repeat:no-repeat;
+}
+.wikiactions a
+{
+              padding-left: 17px;
+}
+.wikiactions  #add  { background-repeat:no-repeat; background-image: url('/i/wiki/add.gif');}
+.wikiactions  #edit {background-repeat:no-repeat; background-image: url('/i/wiki/edit.gif'); }
+.wikiactions  #delete {background-repeat:no-repeat; background-image: url('/i/wiki/delete.gif'); }
+
+/*----------------------------------------------------------------*/
+.wikipath
+{
+        font-size:10px;
+        margin-left: 0em !important; /* .CONTENT UL OL 182 */
+
+}
+.wikipath ul
+{
+        padding: 10px;
+                margin-left: 0;
+}
+.wikipath li
+{
+        display: inline;
+}
+
+.wikipath li:before { content:"\00BB\0020"; }
+{
+        display: inline;
+}
+.wikipath a { content:"\00BB"; }
+{
+        display: inline;
+}
+
+/*-----------------------------------------------------------------*/
+.wikitext
+{
+
+}
+.wikitext div
+{
+        width:100%;
+        clear: none;
+}
+.wikitext #subpages {
+
+}
+/*-----------------------------------------------------------------*/
+.wikititle
+{
+
+}
+
+
+/* -------------------------------------------------------------------*/
+.wikiform #title
+{
+font-size: 18px;
+width: 640px;
+}
+
+.wikiform #titlediv
+{
+padding-bottom: 3px;
+margin-bottom: 20px;
+
+}

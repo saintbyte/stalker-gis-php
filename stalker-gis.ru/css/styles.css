@@ -1,0 +1,230 @@
+html,body,#map{
+
+    width:100%;
+
+    height:100%;
+
+    margin:0;
+
+    padding:0;
+
+    font:13px/25px Arial,sans-serif;
+
+}
+
+.no-border {border:none;}
+
+.no-bg{background:none;background-image:none;}
+
+#map{z-index:0;}
+
+.control{z-index:1;position:absolute;top:0;left:0;height:50px;width:100%;display:block;overflow:none;}
+
+#opdiv{background-color:white;}
+
+#controls{vertical-align:middle;}
+
+/*------ Zooom ----- */
+#zoom{
+z-index:1;
+position:absolute;
+top:70px;
+left:10px;
+height:170px;
+width:30px;
+}
+.zoombutt{
+position:relative;
+
+cursor:hand;cursor:pointer;
+background-repeat: no-repeat;
+background-position: center center;
+
+}
+.zoomPlus
+{
+background-image: url('/i/zoomplus.gif');
+}
+.zoomMunis
+{
+background-image: url('/i/zoomminus.gif');
+}
+.zoomArea {
+position:relative;
+text-align:center;
+padding-top: 5px;
+padding-bottom: 5px;
+cursor:hand;cursor:pointer;
+}
+.zoomLevel
+{
+position:relative;
+cursor:hand;cursor:pointer;
+background-image: url('/i/zoomel.gif');
+background-repeat: no-repeat;
+background-position: center center;
+}
+
+.zoomActive
+{
+background-image: url('/i/zoomel_ac.gif');
+}
+
+/* -----------------*/
+
+#maptypes{clear:none;float:right;height:20px;margin:10px;position:relative;vertical-align:middle;}
+
+a.mapTypeButt,a.mapTypeButt:hover{text-decoration:none;font-weight:bold;color:black;margin-right:10px;padding:3px;padding-bottom:1px;-moz-user-select:none;}
+
+.mapTypeActive{border-bottom:3px solid #0080C0;-moz-user-select:none;}
+
+#buttons{height:50px;float:left;clear:none;position:relative;}
+
+#buttons button{background-color:transparent;border:medium none;cursor:pointer;height:36px;position:relative;vertical-align:middle;display:inline-block;font:-webkit-small-control;letter-spacing:normal;line-height:normal;margin:0;text-align:-webkit-auto;text-indent:0;text-shadow:none;text-transform:none;word-spacing:normal;margin-top:7px;margin-bottom:7px;margin-left:7px;padding:0 6px;}
+
+.opacity30{filter:progid:DXImageTransform.Microsoft.Alpha(opacity=30);-moz-opacity:.3;-khtml-opacity:.3;opacity:.3;}
+
+.opacity50{filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);-moz-opacity:.5;-khtml-opacity:.5;opacity:.5;}
+
+.opacity100{filter:progid:DXImageTransform.Microsoft.Alpha(opacity=100);-moz-opacity:1;-khtml-opacity:1;opacity:1;}
+
+#windo{position:absolute;background-color:white;z-index:100;border:1px solid black;padding:5px;text-align:left;}
+
+#darkbox{position:absolute;top:0;left:0;width:100%;overflow:hidden;background-color:black;z-index:10;}
+
+#windo .title{text-align:left;background-color:steelblue;color:white;padding:7px;clear:none;}
+
+#windo .title a{color:white;}
+
+#windo .title div{float:right;color:white;}
+
+#windo textarea{height:320px;}
+
+#windo table{width:100%;}
+
+#windo .window_close{font-weight:bold;cursor:pointer;}
+
+#windo .content{width:100%;}
+
+#windo #w_iframe{width:100%;height:360px;position:relative;}
+
+#help_win{position:absolute;background-color:white;z-index:10;border:1px solid black;padding:5px;text-align:left;}
+
+.first_butt{background-image:url("../i/fbutt.gif");background-position:0 0;width:120px;font-weight:bold;color:black;}
+
+.login_sun{width:100%;height:100%;text-align:center;vertical-align:middle;margin:10px;}
+
+#login_form{margin-left:30px;}
+
+#login_form input{height:30px;font-size:20px;}
+
+#form input{height:30px;font-size:20px;}
+
+#form textarea{height:120px;width:460px;font-size:20px;}
+
+
+
+/*Tweet View*/
+
+.list_none{list-style-image:none;list-style-type:none;-webkit-padding-start:0;padding-left:0;}
+
+div.tweet{padding:5px;margin:4px;border-top:1px dashed silver;}
+
+.tweet_list{padding-left:0;margin-left:0;}
+
+tweet_pr li.a{color:b;}
+
+.tweet_list li{padding-left:20px;padding-bottom:20px;border-bottom:1px dotted black;}
+
+.tweet_pr{margin-left:20px;padding:5px;}.tweet_pr li{margin-top:0;padding-top:0;display:block;}
+
+.tweet_img{text-align:left;width:52px;padding:5px;margin:10px;}
+
+.tweet_img img{padding:5px;}
+
+.tweet_list li{clear:both;width:100%;padding-bottom:10px;}
+
+.show_tag{padding:7px;}
+
+/* --------------------------------------------------------------------------
+
+COurners and buttons
+
+*/
+
+.butt_top {
+
+ height:50px;
+
+ float:left;
+
+ clear:none;
+
+ position:relative;
+
+}
+
+.r1, .r2, .r3 {
+
+    display: block;
+
+    height: 1px;
+
+    overflow: hidden;
+
+    font-size:1px;
+
+}
+
+
+
+.r3 { margin: 0 3px; }
+
+.r2 { margin: 0 2px; }
+
+.r1 { margin: 0 1px; }
+
+
+
+.rounded-box-3 .inner-box, .rounded-box-3  b {
+
+    background-image:url("../i/buttbg2.gif");
+
+    background-repeat: repeat-x;
+
+    background-color: blue;
+
+    cursor: pointer;
+
+}
+
+
+
+.inner-box {
+
+    padding:1px;
+
+    padding-left:5px;
+
+    padding-right:5px;
+
+}
+
+/* -------------------------------------------------------------------------- */
+
+.content
+
+{
+
+    padding: 7px;
+
+}
+
+.error_div
+
+{
+
+
+
+}
+

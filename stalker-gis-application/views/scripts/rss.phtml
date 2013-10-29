@@ -1,0 +1,16 @@
+<? print '<'.'?'.'xml version="1.0"'.'?'.'>'."\r\n" ?>
+<rss version="2.0">
+<channel>
+<title>Последние добавленные Twitter хеш-теги/Last Added twitter hashtags </title>
+<link>http://twmap.ru/</link>
+<description>Twitter Хэштеги на карте / Twitter Hashtag on Maps</description>
+<language>ru-ru</language>
+<pubDate><?=$this->pubDate;?></pubDate>
+<lastBuildDate><?=$this->lastBuildDate;?></lastBuildDate>
+<docs>http://twitter.com/twi_map</docs>
+<generator>TwMap.ru</generator>
+<managingEditor>info@twmap.ru</managingEditor>
+<webMaster>info@twmap.ru</webMaster>
+<?=$this->layout()->content?>
+</channel>
+</rss>

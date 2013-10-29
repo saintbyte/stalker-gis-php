@@ -1,0 +1,31 @@
+<!-- --->
+<ul class="wikipath">
+<?php
+//print '<pre>'; print_r($this->pathItemsData); print '</pre>';
+$pathItemsDataCount = count($this->pathItemsData);
+$pathItemsDataCount_min_one = $pathItemsDataCount-1;
+for($i=0;$i<$pathItemsDataCount;$i++ ) {
+        $item1 = $this->pathItemsData[$i];
+        if($i != $pathItemsDataCount_min_one) {
+ ?>
+<li><a href="/wiki<?php print $item1['path']; ?>"><?php print $item1['title']; ?></a></li>
+<?php } else { ?>
+<li><?php print $item1['title']; ?></li>
+<?php }  ?>
+<?php } ?>
+</ul>
+<!-- --->
+<h1 class="wikititle"><?php print $this->wikiData->title;?></h1>
+<div class="wikitext"><?php print $this->wikiData->text;?></div>
+<!-- -->
+<? if ($this->allow_modify) {?>
+<ul class="wikiactions">
+<li id="add"><a href="add">Добавить текст</a></li>
+<li id="edit"><a href="edit">Редактировать текст</a></li>
+<li id="delete" ><a href="delete">Удалить</a></li>
+</ul>
+<? } ?>
+<!-- -->
+
+
+

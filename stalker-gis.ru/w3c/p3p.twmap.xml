@@ -1,0 +1,51 @@
+<POLICIES xmlns="http://www.w3.org/2002/01/P3Pv1">
+<EXPIRY max-age="86400"/>
+<POLICY name="twmap" discuri="http://privacy.rambler.ru/" xml:lang="ru">
+<ENTITY>
+<DATA-GROUP>
+        <DATA ref="#business.name">Saint_Byte</DATA>
+        <DATA ref="#business.contact-info.online.email">admin@dotsb.net.ru</DATA>
+        <DATA ref="#business.contact-info.online.uri">http://www.rambler.ru/</DATA>
+        <DATA ref="#business.contact-info.telecom.telephone.number">+7 912 604 0062</DATA>
+        <DATA ref="#business.contact-info.postal.organization">Saint_Byte</DATA>
+        <DATA ref="#business.contact-info.postal.street">72 Red Commander street</DATA>
+        <DATA ref="#business.contact-info.postal.city">Yekaterinburg</DATA>
+        <DATA ref="#business.contact-info.postal.postalcode">620000</DATA>
+        <DATA ref="#business.contact-info.postal.country">Russia</DATA>
+</DATA-GROUP>
+</ENTITY>
+<ACCESS><none/></ACCESS>
+<DISPUTES-GROUP>
+<DISPUTES resolution-type="service" service="mailto:admin@dotsb.net.ru" short-description="Client service">
+<LONG-DESCRIPTION>Users can contact us through admin@dotsb.net.ru</LONG-DESCRIPTION>
+</DISPUTES>
+</DISPUTES-GROUP>
+<STATEMENT>
+    <NON-IDENTIFIABLE/>
+
+    <!-- Use (purpose) -->
+    <PURPOSE><admin/><develop/><pseudo-analysis/><pseudo-decision/><tailoring/></PURPOSE>
+
+    <!-- Recipients -->
+    <RECIPIENT><ours/></RECIPIENT>
+
+    <!-- Retention -->
+    <RETENTION><indefinitely/></RETENTION>
+
+    <!-- Base dataschema elements. -->
+    <DATA-GROUP>
+    <DATA ref="#dynamic.clickstream.clientip.fullip"/>
+    <DATA ref="#dynamic.clickstream.timestamp"/>
+    <DATA ref="#dynamic.clickstream.other.httpmethod"/>
+    <DATA ref="#dynamic.clickstream.uri"/>
+    <DATA ref="#dynamic.clickstream.other.statuscode"/>
+    <DATA ref="#dynamic.clickstream.other.bytes"/>
+    <DATA ref="#dynamic.http.referer"/>
+    <DATA ref="#dynamic.http.useragent"/>
+    <DATA ref="#dynamic.cookies"><CATEGORIES><computer/><navigation/><uniqueid/></CATEGORIES></DATA>
+    </DATA-GROUP>
+</STATEMENT>
+
+<!-- End of policy -->
+</POLICY>
+</POLICIES>

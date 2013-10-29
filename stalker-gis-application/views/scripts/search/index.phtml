@@ -1,0 +1,109 @@
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script>
+var geocoder;
+
+google.load("maps","3.x",{other_params:"sensor=true"});
+google.setOnLoadCallback(init);
+
+function init()
+{ 
+    geocoder = new google.maps.Geocoder();
+}
+//--------------------------------------------------------------------
+function codeAddress() {
+    var address = document.getElementById("q").value;
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        window.parent.setGeoCodingPlaceMarker(results[0].geometry.location.lat(),results[0].geometry.location.lng());
+      } else {
+        $('results').className = 'error_div';
+        $('results').innerHTML = 'Нечего не удалось найти';
+      }
+    });
+  }
+function sl()
+{
+    //alert(window.parent.show_loading(););
+    //$('results').innerHTML  = window.parent.show_loading();
+}
+
+function send2()
+{
+   //alert('123');
+   var q = $('q');
+   var t = $('t');
+   if (q.value=='') {
+       return false;
+   }
+   var search_form = $('search_form');
+   //alert('q:'+q.value+' t:'+t.value);
+   switch(t.value)
+    {
+        case '1': return true; break;
+        case '2': return true; break;
+        case '3': codeAddress(); return false; break;
+        default: alert('Неведомая ошибка');  return false; break; 
+
+    }
+   return true;
+}
+function go_to_tag(lat,lon,z,tag,tag_id)
+{
+    window.parent.go_to_tag(lat,lon,z,tag,tag_id);
+}
+</script>
+
+<form action="/search" method="get" id="search_form"  onSubmit="return send2()">
+    <input type="text" name="q" id="q" value="<?=@$this->q?>"> в
+    <select name="t" id="t">
+        <option value="1" <? if (@$this->t == 1) print 'selected'; ?> >заголовке</option >
+        <option value="2" <? if (@$this->t == 2) print 'selected'; ?> >описание</option>
+        <option value="3" <? if (@$this->t == 3) print 'selected'; ?> >мире</option>
+    </select>
+    <input type="submit" value="Искать">
+</form>
+<div id="loading"></div>
+
+<div id="results">
+
+<?
+if ($this->data) { ?>
+Найдено: <?=$this->result_cnt; ?><br />
+<ul id="tweets" class="tweets list_none">
+<? foreach ($this->paginator as $item) { ?>
+<div class="tweet">
+<a href="javascript:go_to_tag(<? print '\''. $item['lat'].'\',\''.$item['lng'].'\','.$item['z'].',\''.$item['tag'].'\','.$item['id'];?>)"><img src="/i/m1.png" alt="" align="left" class="twi_img" vspace="0" hspace="3" border="0"></a>
+<span>
+<ul class="tweet_pr list_none">
+<li><b>#<?=$item['tag'];?></b></li>
+<li>
+<?
+ if (strlen($item['descr']) >= 60 ) {
+     print strip_tags(substr($item['descr'],0,60) . '...');
+ } else {
+     print $item['descr'];
+ }
+?>
+</li>
+    <? 
+    //print '<pre>'; print_r($item); print '</pre>'; 
+    ?>
+
+<li><small></small></li>
+</ul>
+</span>
+</div>
+<? } ?>
+</ul>
+<?php 
+echo $this->paginationControl($this->paginator, 'Elastic', 'my_pagination_control.phtml'); 
+// echo $this->paginator; 
+?>
+<br />
+<? } else { 
+if (!$this->simple) {    ?>
+Ничего не найдено
+<? 
+    }
+} ?>
+</div>

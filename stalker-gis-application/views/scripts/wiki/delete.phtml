@@ -1,0 +1,20 @@
+<!-- --->
+<ul class="wikipath">
+<?php
+$pathItemsDataCount = count($this->pathItemsData);
+$pathItemsDataCount_min_one = $pathItemsDataCount-1;
+for($i=0;$i<$pathItemsDataCount;$i++ ) {
+        $item1 = $this->pathItemsData[$i];
+        if($i != $pathItemsDataCount_min_one) {
+ ?>
+<li><a href="/wiki<?php print $item1['path']; ?>"><?php print $item1['title']; ?></a></li>
+<?php } else { ?>
+<li><?php print $item1['title']; ?></li>
+<?php }  ?>
+<?php } ?>
+</ul>
+<!-- --->
+Delete Action
+<form action="<?php $this->serverUrl();?>">
+<input type="submit" value="Удалить">
+</form>

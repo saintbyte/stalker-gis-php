@@ -1,0 +1,9 @@
+<? foreach ( $this->lastTags as $tag ) { ?>
+<item>
+<title>#<?=$tag['tag'];?></title>
+<link>http://twmap.ru/tag/<?=$tag['tag'];?>/id/<?=$tag['id'];?></link>
+<description><![CDATA[<?=$tag['descr'];?>]]></description>
+<pubDate><?=$tag['created_on'];?></pubDate>
+<guid>http://twmap.ru/list/<? print substr($tag['tag'],0,1); ?></guid>
+</item>
+<? } ?>

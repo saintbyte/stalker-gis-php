@@ -1,0 +1,20 @@
+<script src="/js/tagtweetget.js" type="text/javascript"></script>
+<div class="content">
+<h3><?=$this->tag ?></h3>
+<?=nl2br(strip_tags($this->descr)); ?>
+<br /><br />
+LAT: <?=$this->lat ?> LNG: <?=$this->lng ?>
+<br /><br />
+<input type="text" value="<?=$this->lat ?>,<?=$this->lng ?>" style="width:200px">
+<br /><br />
+Создано: <?=$this->created_on ?>
+<br /><br />
+Источник: <?=$this->src_url ?>
+<br /><br />
+
+<ul id="tweets" class="tweets list_none"></ul>
+<script type="text/javascript">
+   var search_url = "http://search.twitter.com/search.json?q=%23<?=$this->tag ?>&callback=onSearchResult";
+   //window.addEvent('domready', requestTwitterHashTagData);
+</script>
+</div>

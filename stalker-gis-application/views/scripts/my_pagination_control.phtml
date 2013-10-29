@@ -1,0 +1,33 @@
+<?php if ($this->pageCount): ?>
+<?
+ $cur_uri = $_SERVER['REQUEST_URI']; // Не тру - но дык пока не нашел трушный метод
+?>
+<div class="paginationControl">
+<!-- Ссылка на предыдущую страницу -->
+<?php if (isset($this->previous)): ?>
+  <a href="<?php echo $cur_uri.'&page='. $this->previous; ?>">
+    &lt; Previous
+  </a> |
+<?php else: ?>
+  <span class="disabled">&lt; Предыдущая</span> |
+<?php endif; ?>
+ 
+<!-- Нумерованные ссылки на страницы -->
+<?php foreach ($this->pagesInRange as $page): ?>
+  <?php if ($page != $this->current): ?>
+    <a href="<?php echo $cur_uri.'&page='.  $page; ?>"><?php echo $page; ?></a> |
+  <?php else: ?>
+    <?php echo $page; ?> |
+  <?php endif; ?>
+<?php endforeach; ?>
+ 
+<!-- Ссылка на следующую страницу -->
+<?php if (isset($this->next)): ?>
+  <a href="<?php echo$cur_uri.'&page='.$this->next; ?>">
+    Next &gt;
+  </a>
+<?php else: ?>
+  <span class="disabled">Следующая &gt;</span>
+<?php endif; ?>
+</div>
+<?php endif; ?>

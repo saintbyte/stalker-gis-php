@@ -1,0 +1,8 @@
+<form action="" method="post" class="wikiform">
+<div id="titlediv">
+Заголовок: <input type="text" name="title" id="title" value="<? print htmlspecialchars($this->wikiData->title);?>">
+</div>
+
+<textarea name="text" rows="10" cols="25" style="width:100%; height: 300px"><? print $this->wikiData->text; ?></textarea><br /><br />
+<input type="submit" name="Save">
+</form>

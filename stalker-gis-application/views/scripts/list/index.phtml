@@ -1,0 +1,15 @@
+<h2>Twitter Хеш-таги на букву: <?=$this->lett;?> </h2>
+<br />
+<a href="/">На главную</a>
+<br />
+<ul>
+<?
+foreach($this->data as $item) {
+?>
+    <li><a href="/tag/<?=$item['tag']?>/id/<?=$item['id']?>"><?=$item['tag']?></a></li>
+<?
+}
+?>
+</ul>
+<br />
+<a href="/">На главную</a>

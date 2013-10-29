@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<title>Stalker-Gis / Суровая сталкеровская гео информационанная система</title>
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<style>
+html, body {height:100%; width: 100%}
+body {padding:0; margin:0; }
+#t1c1aj8p { height:100%; width:100% }
+#d1c1aj8p { min-height:20px; min-width: 300px; width: 440px; height: 30px; border: 1px black solid; text-align: left; padding: 5px; font:13px/25px Arial,sans-serif;}
+</style>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  var loged = <?=$this->loged;?>;
+  var login = "<?=$this->login;?>";
+  var view_name = "<?=$this->view_name;?>";
+ // var settings  = "<?=$this->setting;?>";
+  var js_to_load = [{name : "Js Фреймворк Mootools 1.3(Core)",js:"/js/mootools-core-1.3-full-compat-yc.js"},
+{name : "Js Фреймворк Mootools 1.3(More)",js:"/js/mootools-more-1.3.js"},
+{name : "Компонент работы с типами карт",js:"/js/map/MapTypesControl.js"},
+{name : "Компонент маштаба",js   : "/js/map/ZoomControl.js"},
+{name : "Компонент  окна подсказки",js:"/js/window/h.js"},
+{name : "Компонент работы с окнами",js:"/js/window/w.js"},
+{name : "Компонент выежающего окна",js:"/js/bw/bw.js"},
+{name : "Компонент индикации ожидания",js:"/js/window/wait.js"},
+{name : "Основной компонент",js:"/js/main.js"}];
+// —————
+var css_to_load = [{name : 'Основной стиль',css   : '/css/styles.css'}];
+// --------
+var img_to_load = [{name : 'Солнышко',img   : '/i/ajax-loader.gif'}];
+// -----------------------------------------------------------------------
+function include_js(src, callback)
+{
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    if (script.readyState) { //IE
+                script.onreadystatechange = function() {
+                        if (script.readyState == "loaded" || script.readyState == "complete") {
+                                script.onreadystatechange = null;
+                                callback();
+                        }
+                };
+        } else { //Others
+                script.onload = function() {
+                        callback();
+                };
+        }
+
+    script.src = src;
+    head.appendChild(script);
+}
+//-----------------------------------------------------------------------
+function include_css(src, callback)
+{
+    var head = document.getElementsByTagName('head')[0];
+    var css = document.createElement('link');
+    css.type = 'text/css';
+    css.rel  = 'stylesheet';
+    css.media = 'screen';
+    if(callback)
+    {
+            //css.onload = function () { console.log('css.onload')}
+    }
+
+    css.href = src;
+    head.appendChild(css);
+}
+//-----------------------------------------------------------------------
+function include_img(src, callback)
+{
+    var head = document.getElementsByTagName('head')[0];
+    var img = new Image();
+    img.onload = function ()
+    {
+                callback();
+    }
+    img.src = src;
+    head.appendChild(img);
+}
+//---------------------------------------------------------------
+function showLoad(name)
+{
+   try {document.getElementById('d1c1aj8p2').innerHTML = name; } finally {}
+}
+//---------------------------------------------------------------
+function load_scripts()
+{
+
+    for(var i=0; i < js_to_load.length; i++ )
+    {
+        if (typeof(js_to_load[i].loaded) == "undefined") {
+        js_to_load[i].loaded = true;
+        showLoad(js_to_load[i].name);
+        include_js(js_to_load[i].js, load_scripts);
+        return true;
+    }
+}
+load_img();
+}
+//---------------------------------------------------------------
+function load_css()
+{
+    for(var i=0; i < css_to_load.length; i++)
+    {
+        if (typeof(css_to_load[i].loaded) == "undefined") {
+        css_to_load[i].loaded = true;
+        showLoad(css_to_load[i].name);
+        include_css(css_to_load[i].css,  load_css);
+    }
+}
+load_scripts();
+}
+//---------------------------------------------------------------
+function load_img()
+{
+    for(var i=0; i < img_to_load.length; i++)
+    {
+        if (typeof(img_to_load[i].loaded) == "undefined") {
+            img_to_load[i].loaded = true;
+            showLoad(img_to_load[i].name);
+            include_img(img_to_load[i].img,  load_img);
+            return true;
+        }
+    }
+    clear_loading_objs();
+    create_first_app_view();
+    init();
+}
+//---------------------------------------------------------------
+function clear_loading_objs()
+{
+    var body = document.getElementsByTagName('body')[0];
+    var zertva = document.getElementById('t1c1aj8p')
+    body.removeChild(zertva);
+}
+//---------------------------------------------------------------
+function load_google_api()
+{
+  showLoad('Google maps API');
+  google.load("maps","3.x",{other_params:"sensor=true",callback:"load_css"});
+  showLoad('Google maps API - end');
+}
+//---------------------------------------------------------------
+function create_first_app_view()
+{
+    var body = document.getElementsByTagName('body')[0];
+    var d1 = document.createElement('div');
+    d1.id = 'map';
+    body.appendChild(d1);
+
+    var d2 = document.createElement('div');
+    d2.id = 'opdiv';
+    d2.className = 'control opacity30';
+    body.appendChild(d2);
+
+    var d3 = document.createElement('div');
+    d3.id = 'controls';
+    d3.className = 'control';
+    d3.innerHTML = '<div id="buttons" class=""></div><div id="maptypes" class="opacity100"></div>';
+    body.appendChild(d3);
+
+    var d4 = document.createElement('div');
+    d4.id = 'zoom';
+    body.appendChild(d4);
+}
+//---------------------------------------------------------------
+function onLoad()
+{
+  load_google_api();
+}
+
+</script>
+</head>
+<body onload="onLoad()" id="body">
+<table id="t1c1aj8p">
+<tr>
+<td valign="center" align="center">
+<div id="d1c1aj8p">
+<b>Загрузка</b>: <span id="d1c1aj8p2"></span>
+</div>
+</td>
+</tr>
+</table>
+</body>
+</html>

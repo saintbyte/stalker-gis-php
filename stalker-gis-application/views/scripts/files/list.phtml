@@ -1,0 +1,9 @@
+<? if ($this->callback)
+{
+print $this->callback.'(';
+}
+print $this->jsondata;
+if ($this->callback)
+{
+print ');';
+}
