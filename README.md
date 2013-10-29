@@ -10,7 +10,7 @@ stalker-gis-php
 
 Требует 
 - ZEND Framework 1.10.x
-- 
+
 
 
 
