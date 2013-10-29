@@ -6,9 +6,13 @@ stalker-gis-php
 - Хранить и отбражать точки на карте,
 - Простую wiki
 - Принимать и отображать координаты c GPSLogger
+- Рассылка email , email2sms
 
-Требует ZEND.
-ZEND
+Требует 
+- ZEND Framework 1.10.x
+- 
+
+
 
 Сделано на движке twmap
 
